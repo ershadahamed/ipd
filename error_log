@@ -1,0 +1,2 @@
+[11-Apr-2018 12:46:33 UTC] PHP Warning:  mysqli::mysqli(): (HY000/1045): Access denied for user 'consults_lms_test'@'localhost' (using password: YES) in /home/consultshape/public_html/shapeipd/lib/dml/mysqli_native_moodle_database.php on line 296
+[17-Apr-2018 00:35:17 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/consultshape/public_html/ipdonline.consultshape.com/manualdbconfig.php on line 7

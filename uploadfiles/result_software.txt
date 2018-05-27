@@ -1,0 +1,2 @@
+userid;examid;totalanswer;totalcorrectanswer;examtokenid;finalgrade;sumgrades;timestart;timefinish;timemodified;preview;needsupgradetonewqe;courseid
+80;89;50;49;179625370676f61274;97;49.00000;1400128896;1400130180;1400130180;0;0;12	

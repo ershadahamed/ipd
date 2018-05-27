@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="scripts/search_ajax.js" type="text/javascript"></script> 
+</head>
+
+<body>
+<form id="submitForm" method="post">
+<div class="wrapper">
+<div class="field">
+<input name="search" id="search" />
+</div><br />
+<input id="button1" type="submit" value="Submit" class="submit" onclick="run_query();" /><br />
+</div>
+<div id="searchContainer">
+</div>
+</form>
+</body>
+</html>

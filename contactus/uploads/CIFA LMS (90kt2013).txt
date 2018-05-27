@@ -1,0 +1,61 @@
+Offline Exam
+++++++++++++++++=
+- database, add table mdl_cifaquiz_attempts_v
+- registed_candidates.php
+- download_exam_answer.php
+- upload_read.php
+
+
+- upload_read.php
+
+CIFA LMS (90kt2013)
+**************************************
+- theme/aavark/layout/general.php
+- theme/aavark/layout/header_custom.php
+- theme/aavark/layout/footer_custom.php
+- theme/aavark/style/core.css
+
+- lang/en/moodle.php
+- lib/navigationlib.php
+- user/edit_picture.php
+- login/change_password.php
+
+- courses.php
+- userfrontpage/coursedetails.php
+- userfrontpage/viewuserresult.php
+
+
++++++++++++++++++ 10oct2013+++++++++++++++++++++++++++
+offline exam - 202.157.188.32 && cifa lms
+- question b (updated)
+
+
+cifalms &#8482;
+- userfrontpage/listofnameenrolment.php
+- theme/aardvark/layout/general.php
+
+cifalms-mock exam
+- question/type/multichoice/renderer.php
+- question/type/truefalse/renderer.php
+- theme/base/style/question.css
+- theme/aardvark/layout/general.php
+- theme/aardvark/config.php
+- mod/quiz/renderer.php
+- mod/quiz/view.php
+- mod/quiz/result-summay.php
+- mod/quiz/print-summay.php
+- mod/quiz/processattempt.php
+- mod/quiz/lang/en/quiz.php
+- question/engine/renderer.php
+
+
+enroll users
+- enrol/users.php
+- enrol/renderer.php
+
+LMS online - 17oct2013
+**********************
+billing.php
+courses.php
+paymentoption.php
+payment_confirmation.php

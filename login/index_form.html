@@ -1,0 +1,130 @@
+<?php
+if ($show_instructions) {
+    $columns = 'twocolumns';
+} else {
+    $columns = 'onecolumn';
+}
+
+if (empty($CFG->xmlstrictheaders) and !empty($CFG->loginpasswordautocomplete)) {
+    $autocomplete = 'autocomplete="off"';
+} else {
+    $autocomplete = '';
+}
+?>
+<script type="text/javascript">
+function popupwindow(url, title, w, h) {//Center PopUp Window added by Arizan
+  var left = (screen.width/2)-(w/2);
+  var top = (screen.height/2)-(h/2);
+  return window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
+} 
+</script>
+<div class="loginbox clearfix <?php echo $columns ?>">
+  <div class="loginpanel">
+<?php
+  if (($CFG->registerauth == 'email') || !empty($CFG->registerauth)) { ?>
+      <div class="skiplinks"><a class="skip" href="signup.php"><?php print_string("tocreatenewaccount"); ?></a></div>
+<?php
+  } ?>
+    <div style="text-align:center;"><h1><?php print_string("returningtosite") ?></h1></div>
+      <div class="subcontent loginsub">
+        <div class="desc">
+          <?php
+            // print_string("loginusing");
+			// echo '<br/><br/>';
+			// print_string("loginusing2");
+			// echo '<br/><br/>';
+			// print_string("surecapital");
+            if (empty($CFG->usesid)) {
+                // echo '<br/>';
+               // echo '('.get_string("cookiesenabled").')';
+                // echo $OUTPUT->help_icon('cookiesenabled');
+            }
+           ?>
+        </div>
+        <?php
+          if (!empty($errormsg)) {
+              echo '<div class="loginerrors" style="text-align:center;">';
+              echo $OUTPUT->error_text($errormsg);
+              echo '</div>';
+          }
+        ?>
+		<script type="text/javascript">
+		function f(o){o.value=o.value.toUpperCase().replace(/([^0-9A-Z])/g,"");} //auto capitalize
+		</script>
+        <form action="<?php echo $CFG->httpswwwroot; ?>/login/index.php" method="post" id="login" >
+          <div class="loginform" style="text-align:center;">
+            <?php /* <div class="form-label" style="padding-bottom:1em;"><label for="username"><?=ucwords(get_string("candidateid")); ?><?php //print_string("candidateid") ?></label></div> */?>
+            <div class="form-input">
+              <input placeholder="<?=strtoupper(get_string('candidateid'));?>" type="text" onkeydown="f(this)" onchange="f(this)" onkeyup="f(this)" onblur="f(this)" onclick="f(this)" name="username" id="username" size="15" value="<?php //p($frm->username) ?>" autofocus />
+            </div>
+            <div class="clearer"><!-- --></div>
+            <?php /* <div class="form-label"><label for="password"><?php print_string("password") ?></label></div> */ ?>
+            <div class="form-input" style="text-align:center;">
+              <input placeholder="Password" type="password" name="password" id="password" size="15" value="" <?php //echo $autocomplete; ?> />
+			  <br/><input type="submit" style="border-radius: 0px;font-weight:bolder;padding:4px 0px 4px 0px;color:#ffffff;background-color:#0035AD;cursor: pointer;" class="button" id="loginbtn" value="<?php print_string("login") ?>" />
+              <div class="forgetpass" style="margin:0px auto;width: 240px;text-decoration:underline;"><a href="forgot_password.php"><?php print_string("forgotten") ?></a></div>
+              <div class="forgetpass" style="font-weight:bolder;">OR</div>
+			  <input onclick="this.form.action='<?=$CFG->wwwroot.'/coursesindex.php';?>'" type="submit" style="color:#ffffff;font-weight:bolder;padding:4px 0px 4px 0px; background-color:#0035AD;cursor: pointer;border-radius: 0px;" class="button" id="loginbtn" value="<?=get_string('enrollnow');?>" />
+              <div class="forgetpass" style="margin:0px auto;text-decoration:underline;width: 240px;"><a title="<?=get_string('viewdemo');?>" href="javascript:void(0);" onclick="popupwindow('<?=$viewdemo;?>','googlePopup',840,500);"><?=get_string('viewdemo');?></a></div>
+            </div>
+            <div class="clearer"><!-- --></div>
+          </div>
+        </form>
+      </div>
+
+<?php if ($CFG->guestloginbutton and !isguestuser()) {  ?>
+      <div class="subcontent guestsub" style="display:none;">
+        <div class="desc">
+          <?php print_string("someallowguest") ?>
+        </div>
+        <form action="index.php" method="post" id="guestlogin">
+          <div class="guestform">
+            <input type="hidden" name="username" value="guest" />
+            <input type="hidden" name="password" value="guest" />
+            <input type="submit" value="<?php print_string("loginguest") ?>" />
+          </div>
+        </form>
+      </div>
+<?php } ?>
+     </div>
+<?php if ($show_instructions) { ?>
+    <div class="signuppanel">
+      <h2><?php print_string("firsttime") ?></h2>
+      <div class="subcontent">
+<?php     if (is_enabled_auth('none')) { // instructions override the rest for security reasons
+              print_string("loginstepsnone");
+          } else if ($CFG->registerauth == 'email') {
+              if (!empty($CFG->auth_instructions)) {
+                  echo format_text($CFG->auth_instructions);
+              } else {
+                  print_string("loginsteps", "", "signup.php");
+              } ?>
+                 <div class="signupform">
+                   <form action="signup.php" method="get" id="signup">
+                   <div><input type="submit" value="<?php print_string("startsignup") ?>" /></div>
+                   </form>
+                 </div>
+<?php     } else if (!empty($CFG->registerauth)) {
+              echo format_text($CFG->auth_instructions); ?>
+              <div class="signupform">
+                <form action="signup.php" method="get" id="signup">
+                <div><input type="submit" value="<?php print_string("startsignup") ?>" /></div>
+                </form>
+              </div>
+<?php     } else {
+              echo format_text($CFG->auth_instructions);
+          } ?>
+      </div>
+    </div>
+<?php } ?>
+<?php if (!empty($potentialidps)) { ?>
+    <div class="subcontent potentialidps">
+        <h6><?php print_string('potentialidps', 'auth'); ?></h6>
+        <div class="potentialidplist">
+<?php foreach ($potentialidps as $idp) {
+    echo  '<div class="potentialidp"><a href="' . $idp['url']->out() . '" title="' . $idp['name'] . '">' . $OUTPUT->render($idp['icon'], $idp['name']) . '&nbsp;' . $idp['name'] . '</a></div>';
+} ?>
+        </div>
+    </div>
+<?php } ?>
+</div>

@@ -1,0 +1,2 @@
+access_token;firstname;lastname;gender;dob;email ;department ;designation ;institution ;address;address2;address3;city;postcode;country;phone1;orgtype;roleid
+;Kashif;Raza;Male;08-01-1976;Kashif.raza@adib.com;CFIB;Head of Capital Markets & Syndications;ADIB UAE;P.O. Box 313;;;Abu Dhabi;;AE;026100039;7;5

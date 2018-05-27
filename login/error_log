@@ -1,0 +1,14 @@
+[11-Apr-2018 13:06:34 UTC] Default exception handler: Error reading from database Debug: Table 'consults_shapelms.mdl_cifaevents_handlers' doesn't exist
+SELECT * FROM mdl_cifaevents_handlers WHERE eventname = ? 
+[array (
+  0 => 'user_logout',
+)]
+* line 394 of /lib/dml/moodle_database.php: dml_read_exception thrown
+* line 809 of /lib/dml/mysqli_native_moodle_database.php: call to moodle_database->query_end()
+* line 1122 of /lib/dml/moodle_database.php: call to mysqli_native_moodle_database->get_records_sql()
+* line 1071 of /lib/dml/moodle_database.php: call to moodle_database->get_records_select()
+* line 406 of /lib/eventslib.php: call to moodle_database->get_records()
+* line 492 of /lib/eventslib.php: call to events_get_handlers()
+* line 2671 of /lib/moodlelib.php: call to events_trigger()
+* line 44 of /login/logout.php: call to require_logout()
+

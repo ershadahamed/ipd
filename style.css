@@ -1,0 +1,75 @@
+#listcandidate{ 
+	margin-left: auto; 
+	margin-right: auto; 
+	margin-top: 20px;
+	border-collapse: collapse;
+	width: 95%;
+	font:13px/1.231 arial,helvetica,clean,sans-serif;
+}
+#listcandidate th{ 
+	/*background-color: #fff4be;*/
+	background-color: #E5EECC;
+	border: 1px solid #C3C3C3;
+	padding: 3px;
+	vertical-align: top;
+}
+#listcandidate td{ 
+	border: 1px solid #C3C3C3;
+	padding: 3px;
+	vertical-align: top;
+}
+
+#tableluar {
+	width: 800px;
+	border-collapse: collapse;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid #C3C3C3;
+}
+#tabledalam {
+	/*width: 100%;*/
+	padding:20px;
+	font-family: Helvetica,Arial,sans-serif;
+	font-size: 85%;
+	width: 720px;
+	margin-left: auto;
+	margin-right: auto;	
+}
+
+#tabledalam th{
+	padding: 3px;
+	vertical-align: top;
+	text-align: left;
+}
+
+#tabledalam td{ padding:3px;}
+.buttoncetak{
+	/*margin-left: auto;
+	margin-right: auto*/
+	margin: 10px auto 0 auto;
+}
+
+#tableluar2 {
+	width: 800px; 
+	margin-top:15px; 
+	border-collapse: collapse;	
+	padding:0;
+	margin-left: auto;
+	margin-right: auto;
+}
+.institutionallist{
+	border: 1px solid #C3C3C3;
+	border-collapse: collapse;
+	font-family: Helvetica,Arial,sans-serif;
+	font-size: 80%;	
+	padding: 3px;	
+}
+
+.institutionallist th{
+	background-color: #E5EECC;
+}
+
+a:link, a:visited{ text-decoration:none; color:rgb(0,126,186);}
+a:hover {
+color: #ab381b;
+}

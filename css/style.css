@@ -1,0 +1,256 @@
+body {
+	background-color:#E8E8E8;
+	margin:0px;
+	padding:0px;
+	/*font-size: 12px;*/
+	/*font-family: Calibri, Tahoma, Arial;*/
+	font-family:Arial, Verdana, Helvetica, sans-serif;
+}
+
+a {
+	cursor:pointer;
+}
+
+#wrapper {
+	width:100%;
+	background-color:#E8E8E8;
+	padding:0px;
+	margin:0px;
+}
+
+#header {
+	width:inherit;
+	height:40px;
+	background-color:#8B3A62;
+	background:url('../image/header.png');
+}
+
+#navbar {
+	width:inherit;
+	
+	background-color:#8B3A62;
+}
+
+#navbar ul {
+	padding:0px;
+	margin:0px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#navbar li {
+	float:left;
+	display:block;
+	margin-right:0px;
+	background-color:#232323;
+	padding:3px 20px;
+	padding-bottom:3px;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	background:url('../image/btbg.png');
+	border:1px solid #CD6090;
+	border-bottom:0px;
+}
+
+#navbar li:hover{
+	background-color:#8A8A8A;
+	background:url('../image/btp2.png');
+}
+
+#navbar li  a {
+	font-size:11px;
+	color:white;
+	font-weight:bold;
+}
+
+.account {
+	float:right;
+}
+
+#content {
+	width:100%;
+	background-color:#E8E8E8;
+}
+
+.content {
+	width:100%;
+}
+
+.content td {
+	vertical-align:top;
+	
+}
+
+.sidebar {
+	width:200px;
+	/*height: 580px;*/
+	height: 100%;
+	vertical-align: top;	
+}
+
+.con {
+	/*height:600px;*/
+	height: 100%;
+	min-height: 600px;
+}
+
+.con2 {
+	height:100px;
+}
+
+.con , .con2 {
+	/* background-color:#FFF; */
+}
+
+
+#navbar .check {
+	background:url('../image/btbg2.png');
+	background:#E8E8E8;
+}
+
+#navbar .check a { 
+	color: #8B3A62;
+}
+	
+	
+.userinfo {
+	font-size:12px;
+	float:right;
+	margin-top:10px;
+	margin-right:20px;
+	font-weight:bold;
+	color:#fff;
+}
+
+.title {
+	color:#fff;
+	width:600px;
+	float:left;
+	font-size:16px;
+	font-weight:bolder;
+	padding:8px;
+}
+
+#footer {
+	background-color:#8B3A62;
+	background:url('../image/header.png');
+	/*background-color:#E8E8E8;*/
+	text-align:center;
+	font-size:11px;
+	color: #fff;
+}
+
+.con div , .con2 div {
+	width:inherit; 
+	height:inherit; 
+	/*background-color:#fff;*/
+	/*border-radius:2px;
+	box-shadow: 0px 0px 12px #000;*/
+}
+
+.con2 div {
+	margin-top:11px;
+}
+
+/*.sidebar div {
+	padding: 10px;
+	width:inherit; 
+	height:inherit; 
+	/*background-color:#fff;*/
+	/*border-radius:2px;
+	box-shadow: 0px 0px 12px #000;
+	
+}*/
+
+.prolog {
+	margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+a:link, a:visited { /* styling user detail links */
+    color: #ffffff;
+	text-decoration: none;
+}
+
+/*a:visited { 
+    color: #ffffff;
+}*/
+
+a:hover { /* styling user detail links */
+    color: #E8E8E8;
+	text-decoration: none;
+}
+
+a:active { /* styling user detail links */
+    color: #ffffff;
+	text-decoration: none;
+}
+
+.tdclass{
+	color: #565656;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+/********************************frontpage tab*******************************************************/
+h3.name {
+padding: 0;
+margin: 5px 0 0;
+}
+
+#avalaiblecourse{
+padding: 10px 10px 10px 10px;
+font-size: 0.95em;
+/*text-align: justify; font-size: 0.85em;*/
+}
+
+#avalaiblecourse td{
+padding: 5px;
+}
+
+#avalaiblecourse a:link, a:visited {
+color: #007EBA;
+text-decoration: none;
+}
+
+#avalaiblecourse a:hover {
+color: #ab381b;
+}
+
+#formpayment {
+	border: 1px red;
+	margin-left: auto;
+	margin-right: auto;
+	/*border: 2px solid #3D91CB;*/
+	padding: 0.8em;
+	font-size: 13px;
+	width: 100%;
+}
+
+fieldset { 
+	/*border:1.8px solid #3D91CB; */
+	/*border:2.2px solid #ccc; 
+	background-color: #EFF7FB; 6a6b6d*/
+	border:2px solid #5DCBEB;	
+	width: 96%; 
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	padding: 1em 1em 0em;
+	border-top-left-radius: 5px 5px;
+	border-top-right-radius: 5px 5px;
+}
+
+legend {
+	font-size:90%;
+	text-align:left;	
+	color:#000;
+	border:2px solid #5DCBEB;
+	padding: 0.2em 0.5em;
+	background-color: #666666;
+	/*background:url('../image/btbg.png') repeat-x;*/
+	background-color: #5DCBEB;
+	font-weight: bold;
+	border-radius: 8px 8px 3px 3px;
+  }
+/*******************************************************************************************************/

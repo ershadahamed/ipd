@@ -1,0 +1,148 @@
+  .tabContainer{
+	margin:10px 0;width:98%; padding-left: 10px; padding-top: 10px;	
+  
+  }
+  .tabContainer .digiTabs{
+		list-style:none;
+		display:block;
+		overflow:hidden;
+		margin:0;
+		padding:0px;
+		position:relative;
+		top:1px;
+}
+  .tabContainer .digiTabs li{
+		float:left;
+		list-style:none;
+		background-color:#356279;/*#46AAF7*/
+		border:1px solid #356279;
+		/*padding:5px!important;
+		font-family:verdana;
+		*/
+		cursor:pointer;
+		border-bottom:none;
+		margin-right:3px;
+		
+		font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+		font-size:11px;
+		font-weight:bolder;
+		color:#fff;
+		/*height: 2em;*/
+		padding: 8px 20px 6px 20px;
+		
+		text-align: center;
+		/**round***/
+		-webkit-border-radius: 10px 10px 0 0;
+		-moz-border-radius: 10px 10px 0 0;
+		-khtml-border-radius : 10px 10px 0 0;
+		border-radius: 10px 10px 0 0;
+	}
+  .tabContainer .digiTabs .selected{
+		/*background-color:#fff;*/
+		background-color: #EFF7FB;
+		color:#393939;
+  }
+  #tabContent{
+		list-style:none;
+		padding:10px;
+		background-color: #EFF7FB;
+		overflow:hidden;
+		float:left;
+		margin-bottom:30px;
+		border:1px solid #356279B;
+		width:95%;
+		/***curve section for mozile, crome**/
+		-moz-border-radius-bottomleft: 5px;
+		-webkit-border-bottom-left-radius: 5px;
+		-khtml-border-radius-bottomleft: 5px;	
+		-khtml-border-radius-bottomright: 5px;	
+		border-bottom-left-radius: 5px;
+		-moz-border-radius-bottomright: 5px;
+		-webkit-border-bottom-right-radius: 5px;
+		border-bottom-right-radius: 5px;	
+  }
+
+.form_centre  {
+	padding:20px; float: left; width:100%;	
+}
+
+.form_centre input {
+	padding: 0px;
+	margin: .2em;
+}
+
+#newcentre th {
+	font-size: 1.4em;
+	text-align: left;
+	padding-top: 5px;
+	padding-bottom: 4px;
+	background-color: #A7C942;
+	color: white;
+}
+
+#newcentre td, #newcentre th {
+	border: 0px solid #98BF21;
+	padding: 3px 7px 2px 7px;
+	
+}
+
+#newcentre {
+	width: 100%;
+	border: none;
+	margin: 20px;
+	padding: 0;
+	font-family:Helvetica,Arial,sans-serif;
+}
+
+#examList td{ 
+	background-color: #fff;
+	padding: 3px;
+}
+#examList th{ background-color: #fff3cc; padding: 3px;}
+
+#button_exam{
+	float: right;
+	padding: 0;
+}
+
+.form_centre label {
+  float:left;
+  width:15%;
+  margin-right:0.8em;
+  padding-top:0.2em;
+  text-align:right;
+  font-size: 91%;
+  /*font-weight:bold;*/
+  }
+  
+/********************************frontpage tab*******************************************************/
+#availablecourse{
+ background-color: #fff;
+ border-collapse: collapse;
+ margin: auto;
+ padding: 0;
+}
+
+#availablecourse th{
+background-color: #FFF3BF;
+}
+
+#availablecourse td{
+ padding: 2px;
+ margin: 0;
+}
+
+/*******************************************************************************************************/
+#studentregistration {
+	width: 98%;
+	/*border: none;*/
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px;
+	font-family:Helvetica,Arial,sans-serif;
+}
+/***********************************************************************************************************/
+#idtable2{margin-left:auto; margin-right:auto;width:155px; border: none;}
+#idtable2 td{border-width:0px;}
+#idtable3{width:400px; margin-bottom: 0em; margin-top: 1em;}
+#idtable3 td{border-width:0px;}
