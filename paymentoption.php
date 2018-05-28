@@ -334,19 +334,21 @@ $("input[type=checkbox]").change();
 });
 });//]]> 
 </script>
+
+
 <script language="JavaScript">
 	function validate(){
 		pengakuan1 = 'Please choose your payment method.';
 		
-		elem1 = document.getElementById('creditcard');
-		elem2 = document.getElementById('paypal');
+//		elem1 = document.getElementById('creditcard');
+//		elem2 = document.getElementById('paypal');
 		elem3 = document.getElementById('telegraphic');
 
 		if ( (elem1.checked == false ) && (elem2.checked == false ) && (elem3.checked == false ) )
 		{
-		alert (pengakuan1);
-		document.form1.radio.focus();
-		return false;
+                    alert (pengakuan1);
+                    document.form1.radio.focus();
+                    return false;
 		}
 			
 		document.form1.submit();	
@@ -354,14 +356,21 @@ $("input[type=checkbox]").change();
 				
 	}
 </script>
+
+    
+    
 <?php
 	//idle time
 	include('js/js_idletime.php');
 	
 	$link=$CFG->wwwroot .'/payment_confirmation.php?traineeID='.$traineeID.'&&method='.$_POST['radio'].'&name='.$firstname.'&middlename='.$middlename.'&lastname='.$lastname.'&gender='.$gender.'&dob='.$dob.'&address='.$address.'&address2='.$address2.'&address3='.$address3.'&title='.$title.'&email='.$email.'&phone='.$phone.'&phone2='.$phone2.'&state='.$province.'&city='.$city.'&postalcode='.$postal.'&country='.$country.'&&co1='.$co1.'&&co2='.$co2.'&&co3='.$co3.'&&customerid='.$customerid.'&orderid='.$orderid;
 ?>	
+
+
+
+
 <div style="min-height: 260px;">
-<form id="form1" name="form1" method="post" action="">	
+<form id="form1" name="form1" method="post" action="<?=$link;?>">	
 <style>
 #shopcart img{max-width:80%;}
 </style>
@@ -426,102 +435,29 @@ $("input[type=checkbox]").change();
     </div>
 	</fieldset>	
 	<!-- End purchasing order -->
-<fieldset style="padding: 0.6em;" id="user" class="clearfix"><legend style="font-weight:bolder;" class="ftoggler">Please choose your preferred payment method:</legend>
+        
+        
+        
+        
+        
+<!--Payment method below--> 
+
+<!--the payment method passed to payment confirmation [age-->
+        
+<fieldset style="padding: 0.6em; display:none;" id="user" class="clearfix"><legend style="font-weight:bolder;" class="ftoggler">Please choose your preferred payment method:</legend>
 <table width="50%" border="0">
     <tr>
-      <td width="5%"><input type="radio" name="radio" id="creditcard" value="creditcard" disabled="disabled" onClick="this.form.action='';" /></td>
-      <td width="1%">&nbsp;</td>      
-      <td width="94%">Credit card</td>      
-    </tr>
-    <tr>
-      <td><input type="radio" name="radio" id="paypal" value="paypal" disabled="disabled" onClick="this.form.action='';" /></td>    
-      <td>&nbsp;</td>
-      <td>Paypal</td>
-    </tr>
-    <tr>
-      <td><input type="radio" name="radio" id="telegraphic" value="telegraphic" onClick="this.form.action='<?=$link;?>';" /></td>    
+      <td><input type="radio" name="radio" id="telegraphic" checked value="telegraphic" onClick="this.form.action='<?=$link;?>';" /></td>    
       <td>&nbsp;</td>    
       <td>Bank Transfer</td>
     </tr>   
   </table>
 </fieldset>
     
-<!------Paypal Show Hide------------>
-<div class="check paypal" style="display:none">
-<p> Some information i want hidden (5) </p>
-</div>
-<!------Paypal Show Hide------------>
 
-<!----Credit card -- Show Hide--Billing address------------>
-<div class="check creditcard" style="display:none">
-<fieldset id="fieldset"><legend id="legend" style="width:120px;">&nbsp;Billing Address&nbsp;</legend>
-	<div style="padding:20px;">
-        <table border="0" cellpadding="2px" width="95%">
-            <tr><td width="30%">Title</td><td width="1%"><strong>:</strong></td>
-                <td>
-                    <select name="billingtitle">
-                        <option <?php if($_GET['title']=='Mr.'){ echo "selected='selected'";}?> >Mr.</option>
-                        <option <?php if($_GET['title']=='Mrs.'){ echo "selected='selected'";}?>>Mrs.</option>
-                        <option <?php if($_GET['title']=='Miss.'){ echo "selected='selected'";}?>>Miss.</option>
-                        <option <?php if($_GET['title']=='Ms.'){ echo "selected='selected'";}?>>Ms.</option>
-                   </select>
-                </td>
-            </tr>
-            <tr><td>First name</td><td width="1%"><strong>:</strong></td><td>
-                    <input type="text" name="billingname" size="40" value="<?=$_GET['name'];?>" onKeyUp="javascript:this.value=this.value.toTitleCase();" /><?=$strrequired;?>
-            </td></tr>
-            <tr><td>Middle name</td><td width="1%"><strong>:</strong></td><td>
-                    <input type="text" value="<?=$_GET['middlename']; ?>" name="billingmiddlename" size="40" onKeyUp="javascript:this.value=this.value.toTitleCase();" />
-            </td></tr>				 
-            <tr><td>Last name</td><td width="1%"><strong>:</strong></td><td>
-                    <input type="text" value="<?=$_GET['lastname'];?>" name="billinglastname" size="40" onKeyUp="javascript:this.value=this.value.toTitleCase();" /><?=$strrequired;?>
-            </td></tr>
-            <tr><td>Date of birth</td><td><strong>:</strong></td><td>
-                    <input type="text" value="<?=$_GET['dob'];?>" id="inputField" name="billingdob" size="40" /><?=$strrequired;?>
-            </td></tr>	
-            <tr><td>Gender</td><td><strong>:</strong></td><td>
-                    <input type="text" value="<?=$_GET['gender'];?>" id="billgender" name="billgender" size="40" /><?=$strrequired;?>
-            </td></tr>
-            <tr><td>Email address</td><td width="1%"><strong>:</strong></td><td>
-                    <input type="text" value="<?=$_GET['email'];?>" name="billingemail" size="40" /><?=$strrequired;?>
-            </td></tr>			
-            <tr><td>Address details</td><td width="1%"><strong>:</strong></td><td>
-                    <input type="text" value="<?=$_GET['address'];?>" name="billingaddress" size="40" onKeyUp="javascript:this.value=this.value.toTitleCase()" /><?=$strrequired;?>
-            </td></tr>		
-            <tr><td>&nbsp;</td><td width="1%"><strong>:</strong></td><td>
-                    <input type="text" value="<?=$_GET['address2'];?>" name="billingaddress2" size="40" onKeyUp="javascript:this.value=this.value.toTitleCase()" />
-            </td></tr>							
-            <tr><td>State</td><td width="1%"><strong>:</strong></td><td>
-                    <input type="text" value="<?=$_GET['state'];?>" name="billingstate" size="40" onKeyUp="javascript:this.value=this.value.toTitleCase()" />
-            </td></tr>					
-            <tr><td>Postal code</td><td width="1%"><strong>:</strong></td><td>
-                    <input value="<?=$_GET['postalcode']; ?>" type="text" name="billingpostalcode" size="40" />
-            </td></tr>											
-            <tr><td>Country</td><td width="1%"><strong>:</strong></td><td>
-
-            <?php
-                $statement="SELECT * FROM mdl_cifacountry_list";
-                $scountry=mysql_query($statement);				
-            ?>			
-                <select id="country" name="billingcountry">
-                        <option value=""> - </option>
-                        <?php while($rowcountry=mysql_fetch_array($scountry)){ ?>
-                        <option <?php if($_GET['country']==$rowcountry['countrycode']){ echo "selected='selected'";}?> value="<?=$rowcountry['countrycode'];?>"><?=$rowcountry['countryname'];?></option>
-                        <?php } ?>
-                </select><?=$strrequired;?>
-            </td></tr>			
-            <tr valign="top"><td>Contact number</td><td width="1%"><strong>:</strong></td><td>
-                Phone no. (M) :- &nbsp;&nbsp;&nbsp;&nbsp;				
-                <input type="text" id="phoneM" value="<?=$_GET['phone'];?>" name="billingphoneM" size="20" />
-                <input type="text" name="countrycode" id="countrycode" size="10" readonly="readonly" style="border:0; width: 50px; text-align:center;font-weight:bold;"/><?=$strrequired;?>
-                <input type="hidden" name="phone" id="phone" value="" />					
-            </td></tr>					
-        </table>
-	</div>
-</fieldset> </div>
 
 <table style="width:10%; margin:0 auto;">
-<tr valign="top"><td><input type="submit" name="submit" value=" Next " onclick="return validate();" /></td></tr>
+<tr valign="top"><td><input type="submit" name="submit" value=" Confirm " onClick="return validate();" /></td></tr>
 </table>
 </form>
 </div>
