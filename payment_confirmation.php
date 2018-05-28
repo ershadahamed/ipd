@@ -45,19 +45,6 @@
 	$customerid=$_GET['customerid'];
 	$orderid=$_GET['orderid'];	
 	$paymethod=$_POST['radio'];
-        
-        //billing info//credit card
-        $billtraineeid=$_GET['traineeID'];
-        $billtitle=$_POST['billingtitle'];
-        $billname=$_POST['billingname'].' '.$_POST['billingmiddlename'].' '.$_POST['billinglastname'];
-        $billdob=$_POST['billingdob'];
-        $billgender=$_POST['billgender'];
-        $billemail=$_POST['billingemail'];
-        $billaddressuser=$_POST['billingaddress'].' '.$_POST['billingaddress2'];
-        $billpostal=$_POST['billingpostalcode'];
-        $billprovince=$_POST['billprovince'];
-        $billcountry=$_POST['billingcountry'];
-        $billphone=$_POST['billingphoneM'];      
 	
 	//untuk running number
 	$statementorder=mysql_query("SELECT * FROM mdl_cifaorders WHERE serial='".$orderid."' ORDER BY serial DESC");
