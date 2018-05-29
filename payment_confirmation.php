@@ -157,7 +157,9 @@ h3{color:#ffffff;}
 		</td>           
     </tr> 
 </table>
-<table id="availablecourse3"  width="99%" border="1" style="bgcolor:#FFFFFF; border-collapse: collapse; border-spacing: 0; border-color:#cccccc;margin: 0px auto;">
+
+<!--Remove bank account information-->
+<!-- <table id="availablecourse3"  width="99%" border="1" style="bgcolor:#FFFFFF; border-collapse: collapse; border-spacing: 0; border-color:#cccccc;margin: 0px auto;">
 	<tr style="background-color:#21409A;"><td colspan="3"><h3 style="padding-bottom: 0.5em; padding-top: 1em;">SHAPE for Economic Consulting W.L.L  at Boubyan Bank</h3></td></tr>	
 	<tr><td width="20%">Branch</td><td width="1%"><strong>:</strong></td><td>Sharq Branch</td></tr>
 	<tr><td>Account Title/Beneficiary</td><td><strong>:</strong></td><td>SHAPE for Economic Consulting W.L.L</td></tr>
@@ -174,7 +176,7 @@ h3{color:#ffffff;}
 		<?//=get_string('textpayment', '', $a);?>
 	</td></tr>
 	<tr style="background-color:#d6dee7;"><td colspan="3">&nbsp;</td></tr>	
-</table><br/>
+</table><br/> -->
 <table width="100%" border="0" style="bgcolor:#FFFFFF; border-collapse: collapse; border-spacing: 0; border-color:#cccccc;margin: 0px auto;">  
 	<tr>
 		<td>
