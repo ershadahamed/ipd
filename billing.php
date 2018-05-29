@@ -140,16 +140,16 @@ function echeck(str) {
 			f.lastname.focus();
 			return false;
 		}	
-		if(f.dob.value==''){
-			alert('Your date of birth is required');
-			f.dob.focus();
-			return false;
-		}
-		if(f.gender.value==''){
-			alert('Your gender is required');
-			f.gender.focus();
-			return false;
-		}		
+//		if(f.dob.value==''){
+//			alert('Your date of birth is required');
+//			f.dob.focus();
+//			return false;
+//		}
+//		if(f.gender.value==''){
+//			alert('Your gender is required');
+//			f.gender.focus();
+//			return false;
+//		}		
 		if((f.email.value==null) || (f.email.value=='')){
 			alert('Your email is required');
 			f.email.focus();
@@ -160,21 +160,21 @@ function echeck(str) {
 			f.email.focus()
 			return false
 		}
-		if(f.address.value==''){
-			alert('First line of address is required');
-			f.address.focus();
-			return false;
-		}			
-		if(f.city.value==''){
-			alert('City is required');
-			f.city.focus();
-			return false;
-		}	
-		if(f.postalcode.value==''){
-			alert('Postal code is required');
-			f.postalcode.focus();
-			return false;
-		}	
+//		if(f.address.value==''){
+//			alert('First line of address is required');
+//			f.address.focus();
+//			return false;
+//		}			
+//		if(f.city.value==''){
+//			alert('City is required');
+//			f.city.focus();
+//			return false;
+//		}	
+//		if(f.postalcode.value==''){
+//			alert('Postal code is required');
+//			f.postalcode.focus();
+//			return false;
+//		}	
 		if(f.country.value==''){
 			alert('Your country is required');
 			f.country.focus();
@@ -447,7 +447,7 @@ $("input[type=checkbox]").change();
                     <input type="text" name="lastname" size="40" onKeyUp="javascript:this.value=this.value.toTitleCase()" />
                     <?php } ?>
             </td></tr>
-            <tr><td><?=get_string('dob');?><?=$strrequired;?></td><td><strong>:</strong></td><td>
+            <tr><td><?=get_string('dob');?></td><td><strong>:</strong></td><td>
                     <?php 
 					if($candidate_id!='' && $q_dob!=''){
 						if($q_dob!='0'){
@@ -457,7 +457,7 @@ $("input[type=checkbox]").change();
                     <input type="text" id="inputField" name="dob" size="40" />
                     <?php } ?>
             </td></tr>	
-            <tr><td><?=get_string('gender');?><?=$strrequired;?></td><td><strong>:</strong></td><td>
+            <tr><td><?=get_string('gender');?></td><td><strong>:</strong></td><td>
                     <?php if($candidate_id!='' && $q_gender!=''){ ?>
 					<select id="gender" name="gender">
                         <option> - Gender - </option>
@@ -479,7 +479,7 @@ $("input[type=checkbox]").change();
                     <input type="text" name="email" size="40" />
                     <?php } ?>
             </td></tr>			
-            <tr><td><?=get_string('address1');?><?=$strrequired;?></td><td width="1%"><strong>:</strong></td><td>
+            <tr><td><?=get_string('address1');?></td><td width="1%"><strong>:</strong></td><td>
                     <?php if($candidate_id!='' && $q_address!=''){ 
 						echo '<input type="text" name="address" size="40" value="'.ucwords(strtolower($q_address)).'"/>';
 					}else { ?>
@@ -502,10 +502,10 @@ $("input[type=checkbox]").change();
 			<?php } ?>
             </td></tr>			
 			<tr>
-				<td><?=get_string('city');?><?=$strrequired;?></td><td width="1%">:</td>
+				<td><?=get_string('city');?></td><td width="1%">:</td>
 				<td><input type="text" name="city" id="city" onKeyUp="javascript:this.value=this.value.toTitleCase()" /></td>
 			</tr> 	
-            <tr><td><?=get_string('zip');?><?=$strrequired;?></td><td width="1%"><strong>:</strong></td><td>
+            <tr><td><?=get_string('zip');?></td><td width="1%"><strong>:</strong></td><td>
 			<?php if($candidate_id!='' && $q_postalcode!=''){
 				echo '<input type="text" name="postalcode" size="40" value="'.ucwords(strtolower($q_postalcode)).'"/>';	
 			}else{ ?>			
