@@ -1,7 +1,7 @@
 <?php
 	function authgMail($from, $namefrom, $to, $nameto, $subject, $message) {
 		
-		$smtpServer = "mail.hover.com";   //ip address of the mail server.  This can also be the local domain name
+		$smtpServer = "mx.hover.com.cust.hostedemail.com";   //ip address of the mail server.  This can also be the local domain name
 		$port = "25";					 // should be 25 by default, but needs to be whichever port the mail server will be using for smtp 
 		$timeout = "45";				 // typical timeout. try 45 for slow servers
 		$username = "info@consultshape.com"; // the login for your smtp
