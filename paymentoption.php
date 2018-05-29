@@ -39,7 +39,7 @@
 	$dob = $_POST['dob'];
 	$dob2 = strtotime($_POST['dob']);
 	$dob_1=date('d/m/Y', $dob2);
-    $gender = $_POST['gender'];	
+        $gender = $_POST['gender'];	
 		
 	$userfullname=$firstname.' '.$lastname; 
 	$addressUser=$address.' '.$address2;
