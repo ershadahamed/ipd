@@ -199,10 +199,21 @@
 			$supportemail=$q_supportemail['value'];
 			
                         
-                        // Loop send email for each course if 
+                        // Loop get course, for each course if 
                         // more than 1 course or single course
                         //  - By Ershad
                         // --------- START --------- //
+                        
+                        //Payment links
+                        $foundation = 'http://www.gocollect.io/shape%20for%20economic%20consulting/8cc41';
+                        $accounting = 'http://www.gocollect.io/shape%20for%20economic%20consulting/o9zwd';
+                        $trade_finance = 'http://www.gocollect.io/shape%20for%20economic%20consulting/171c2';
+                        $treasury = 'http://www.gocollect.io/shape%20for%20economic%20consulting/85759';
+                        $capital_market = 'http://www.gocollect.io/shape%20for%20economic%20consulting/53c39';
+                        
+                        $coursedetails_e = "";
+                        $payment_link = '';
+                        
                         if(is_array($_SESSION['cart'])){
                             $max = count($_SESSION['cart']);
                             
@@ -215,190 +226,120 @@
                                 
                                 $price = get_price($pid);
                                 
-                                $to = $email;
-                                $subject = "Next Step: ".strtoupper($traineeID)." - Candidate Part-Enrolment Confirmation & Payment Instruction";
+                                //Setting up payment links
                                 
-                                $message = "
-                                    <html>
-                                        <head>
-                                            <title>HTML email</title>
-                                        </head>
-                                        <body>
-                                        <p>Dear (".ucwords(strtolower($name))."),</p>
-                                        <br/><p>Candidate ID: ".$traineeID."</p>
-
-                                        <br/><p style='text-align:justify;'>
-                                        I am pleased to congratulate you to have taken the first step in enrolling as SHAPE<sup>&reg;</sup> IPD Candidate. Your Candidate ID is <strong>".$traineeID."</strong> . Please quote this in all future correspondence with us.</p>
-
-                                        <br/><p style='text-align:justify;'>Please find below your transaction details:</p>
-
-                                        <br/>
-
-                                        <table id='availablecourse3' style='bgcolor:#FFFFFF; border-collapse: collapse; border-spacing: 0; border-color:#cccccc;margin: 0px auto;' width='100%' border='1'>
-
-                                            <tr bgcolor='#efeff7'>
-                                              <td><strong>Description</strong></td>
-                                              <td><strong>Unit price</strong></td>
-                                              <td align='center' width='1%'><strong>Qty</strong></td>
-                                              <td width='20%'><strong>Amount</strong></td>
-                                            </tr>
-                                            <tr bgcolor='#FFFFFF'>
-                                              <td>".$pname."</td>
-                                              <td>$ ".$price." USD</td>
-                                              <td align='center'>".$q."</td>
-                                              <td>$ ".$price * $q." USD</td>
-                                            </tr>
-                                            <tr bgcolor='#efeff7'>
-                                              <td>&nbsp;</td>
-                                              <td>&nbsp;</td>
-                                              <td align='center'><strong>Total</strong></td>
-                                              <td>$ ".$price * $q." USD</td>
-                                            </tr>  
-                                          </table>
-
-                                        <br/><p style='text-align:justify;'>
-                                            Please be sure to send the successful payment transfer proof which contains the following information to info@consultshape.com :
-                                        </p>										
-
-                                        <br/><p style='text-align:justify;'>
-                                            <ol>
-                                                <li>Receipt Ref No</li>
-                                                <li>Invoice No</li>
-                                                <li>Full Name </li>
-                                                <li>Email</li>
-                                                <li>Candidate ID</li>
-                                            </ol>
-                                        </p>
-
-                                        <br/><p style='text-align:justify;'>
-                                            The process to verify payment and updating your status may take up to 48 hours. 
-                                        </p> 
-
-                                        <br/><p style='text-align:justify;'>
-                                            Once your status has been updated, you will receive another email guiding you to login to IPD Online and start your training with us.
-                                        </p> 
-
-                                        <br/><p style='text-align:justify;'>
-                                            Please do not hesitate to <strong><u><a href='http://134.213.66.124/shapeipd/contactus/upload_index.php' target='_blank'>contact us</a></u></strong> for further assistance. 
-                                        </p> 
-
-                                        <br/><p>Yours Sincerely, <br>
-                                        <strong>SHAPE<sup>&reg;</sup> Knowledge Services</strong></p>
-                                        <br/><p style='font-size:11px'><strong>Disclaimer:</strong> <br>
-                                            This is a system  generated email. Please do not reply. For assistance, please <strong><u><a href='http://134.213.66.124/shapeipd/contactus/upload_index.php' target='_blank'>contact us</a></u></strong> and we will revert back to you within 72 hours. </p>
-                                        </body>
-                                    </html>
-                                    ";
-                                // Always set content-type when sending HTML email
-                                $link=$CFG->wwwroot;
-                                $headers = "MIME-Version: 1.0" . "\r\n";
-                                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-                                // More headers
-                                $headers .= 'From: <'.$supportemail.'>' . "\r\n";
-                                //$headers .= 'Cc: mohd.arizan@mmsc.com.my'. "\r\n";
-
-                                mail($to,$subject,$message,$headers);
-                                // end email config	
-                                /////// AUTHMAIL ///////////////////////////////////////////////////////////////////////
-                                $from1=$supportemail;  
-                                $namefrom1="IPD Online";
-                                $nameto1 = "IPD Online"; 
-
-                                // this is it, lets send that email!
-                                authgMail($from1, $namefrom1, $to, $nameto1, $subject, $message);
+                                if($pname === '' || $pname === ''){
+                                    $payment_link = $foundation;
+                                }else if ($pname === ''){
+                                    $payment_link = $accounting;
+                                }else if ($pname === ''){
+                                    $payment_link = $trade_finance;
+                                }else if ($pname === ''){
+                                    $payment_link = $treasury;
+                                }else if ($pname === ''){
+                                    $payment_link = $capital_market;
+                                }else {
+                                    $payment_link = '';
+                                }
+                                
+                                $coursedetails_e .= "
+                                    <table id='availablecourse3' style='bgcolor:#FFFFFF; border-collapse: collapse; border-spacing: 0; border-color:#cccccc;margin: 0px auto;' width='100%' border='1'>
+                                        <tr bgcolor='#efeff7'>
+                                            <td><strong>Description</strong></td>
+                                            <td><strong>Unit price</strong></td>
+                                            <td align='center' width='1%'><strong>Qty</strong></td>
+                                            <td width='20%'><strong>Amount</strong></td>
+                                        </tr>
+                                        <tr bgcolor='#FFFFFF'>
+                                            <td>".$pname."</td>
+                                            <td>$ ".$price." USD</td>
+                                            <td align='center'>".$q."</td>
+                                            <td>$ ".$price * $q." USD</td>
+                                        </tr>
+                                        <tr bgcolor='#efeff7'>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td align='center'><strong>Total</strong></td>
+                                            <td>$ ".$price * $q." USD</td>
+                                        </tr>  
+                                    </table>";
                             }
                         }
                         // --------- END --------- //
                         
 			// email to commenter
-			//$to = $email;
-			//$subject = "Next Step: ".strtoupper($traineeID)." - Candidate Part-Enrolment Confirmation";
-			
-//			$message = "
-//				<html>
-//				<head>
-//					<title>HTML email</title>
-//				</head>
-//				<body>
-//				<p>Dear (".ucwords(strtolower($name))."),</p>
-//				<br/><p>Candidate ID: ".$traineeID."</p>
-//				
-//				<br/><p style='text-align:justify;'>
-//				I am pleased to congratulate you to have taken the first step in enrolling as SHAPE<sup>&reg;</sup> IPD Candidate. Your Candidate ID is <strong>".$traineeID."</strong> . Please quote this in all future correspondence with us.</p>
-//					
-//				<br/><p style='text-align:justify;'>
-//				The next step is to wire transfer the relevant payment to us within the stipulated 4 weeks to ensure your successful enrolment as a SHAPE<sup>&reg;</sup> IPD Candidate. Failing to meet the deadline, your enrolment will be cancelled.</p>
-//
-//				<br/><p>Please pay to:<br>
-//				SHAPE for Economic  Consulting W.L.L at Boubyan Bank</p>
-//				
-//				<br/><table width='100%' border='1'>
-//				  <tr>
-//					<td width='34%'>Branch</td>
-//					<td width='2%'>:</td>
-//					<td width='64%'>Sharq Branch</td>
-//				  </tr>
-//				  <tr>
-//					<td>Account Title/Beneficiary</td>
-//					<td>:</td>
-//					<td>SHAPE for Economic Consulting W.L.L</td>
-//				  </tr>
-//				  <tr>
-//					<td>SWIFT Code</td>
-//					<td>:</td>
-//					<td>BBYNKWKW</td>
-//				  </tr>
-//				  <tr>
-//					<td>IBAN # </td>
-//					<td>:</td>
-//					<td>KW62 BBYN 0000 0000 0000 0203 3190 02</td>
-//				  </tr>
-//				  <tr>
-//					<td>Account Number</td>
-//					<td>:</td>
-//					<td>0203319002</td>
-//				  </tr>
-//				  <tr>
-//					<td>Reference</td>
-//					<td>:</td>
-//					<td>".$traineeID."</td>
-//				  </tr>
-//				</table>
-//
-//				<br/><p style='text-align:justify;'>You will be liable  for the additional charges incurred in the bank transfer. Please be sure to  send the successful bank transfer slip with your Candidate ID to <strong><u><a href='http://134.213.66.124/shapeipd/contactus/upload_index.php' target='_blank'>contact us</a></u></strong>. The process to verify  payment and updating your status may take up to 7 days. </p>										
-//				
-//				<br/><p style='text-align:justify;'>
-//				Once your status has been updated, you will receive another email guiding you to login to your IPD Online and start your training with us. </p>
-//
-//				<br/><p style='text-align:justify;'>&nbsp;</p> 
-//
-//				<br/><p>Yours Sincerely, <br>
-//				<strong>SHAPE<sup>&reg;</sup> Knowledge Services</strong></p>
-//				<br/><p style='font-size:11px'><strong>Disclaimer:</strong> <br>
-//				  This is a system  generated email. Please do not reply. For assistance, please <strong><u><a href='http://134.213.66.124/shapeipd/contactus/upload_index.php' target='_blank'>contact us</a></u></strong> and we will revert back to you within 72 hours. </p>
-//				</body>
-//				</html>
-//			";
-			
+			$to = $email;
+                        $subject = "Next Step: ".strtoupper($traineeID)." - Candidate Part-Enrolment Confirmation & Payment Instruction";
+                                
+                        $message = "
+                            <html>
+                                <head>
+                                    <title>HTML email</title>
+                                </head>
+                                <body>
+                                <p>Dear (".ucwords(strtolower($name))."),</p>
+                                <br/><p>Candidate ID: ".$traineeID."</p>
+
+                                <br/><p style='text-align:justify;'>
+                                I am pleased to congratulate you to have taken the first step in enrolling as SHAPE<sup>&reg;</sup> IPD Candidate. Your Candidate ID is <strong>".$traineeID."</strong> . Please quote this in all future correspondence with us.</p>
+
+                                <br/><p style='text-align:justify;'>Please find below your transaction details:</p>
+
+                                <br/>
+
+                                ".$coursedetails_e."
+
+                                <br/><p style='text-align:justify;'>
+                                    Please be sure to send the successful payment transfer proof which contains the following information to info@consultshape.com :
+                                </p>										
+
+                                <br/><p style='text-align:justify;'>
+                                    <ol>
+                                        <li>Receipt Ref No</li>
+                                        <li>Invoice No</li>
+                                        <li>Full Name </li>
+                                        <li>Email</li>
+                                        <li>Candidate ID</li>
+                                    </ol>
+                                </p>
+
+                                <br/><p style='text-align:justify;'>
+                                    The process to verify payment and updating your status may take up to 48 hours. 
+                                </p> 
+
+                                <br/><p style='text-align:justify;'>
+                                    Once your status has been updated, you will receive another email guiding you to login to IPD Online and start your training with us.
+                                </p> 
+
+                                <br/><p style='text-align:justify;'>
+                                    Please do not hesitate to <strong><u><a href='http://134.213.66.124/shapeipd/contactus/upload_index.php' target='_blank'>contact us</a></u></strong> for further assistance. 
+                                </p> 
+
+                                <br/><p>Yours Sincerely, <br>
+                                <strong>SHAPE<sup>&reg;</sup> Knowledge Services</strong></p>
+                                <br/><p style='font-size:11px'><strong>Disclaimer:</strong> <br>
+                                    This is a system  generated email. Please do not reply. For assistance, please <strong><u><a href='http://134.213.66.124/shapeipd/contactus/upload_index.php' target='_blank'>contact us</a></u></strong> and we will revert back to you within 72 hours. </p>
+                                </body>
+                            </html>";
+                        
 			// Always set content-type when sending HTML email
-//			$link=$CFG->wwwroot;
-//			$headers = "MIME-Version: 1.0" . "\r\n";
-//			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-//			
-//			// More headers
-//			$headers .= 'From: <'.$supportemail.'>' . "\r\n";
-//			//$headers .= 'Cc: mohd.arizan@mmsc.com.my'. "\r\n";
-//			
-//			mail($to,$subject,$message,$headers);
-//			// end email config	
-//			/////// AUTHMAIL ///////////////////////////////////////////////////////////////////////
-//			$from1=$supportemail;  
-//			$namefrom1="IPD Online";
-//			$nameto1 = "IPD Online"; 
-//					
-//			// this is it, lets send that email!
-//			authgMail($from1, $namefrom1, $to, $nameto1, $subject, $message);
+			$link=$CFG->wwwroot;
+			$headers = "MIME-Version: 1.0" . "\r\n";
+			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+			
+			// More headers
+			$headers .= 'From: <'.$supportemail.'>' . "\r\n";
+			//$headers .= 'Cc: mohd.arizan@mmsc.com.my'. "\r\n";
+			
+			mail($to,$subject,$message,$headers);
+			// end email config	
+			/////// AUTHMAIL ///////////////////////////////////////////////////////////////////////
+			$from1=$supportemail;  
+			$namefrom1="IPD Online";
+			$nameto1 = "IPD Online"; 
+					
+			// this is it, lets send that email!
+			authgMail($from1, $namefrom1, $to, $nameto1, $subject, $message);
                        
 	}	
 	///////////////////////////////////////////////- END ADDING USER-//////////////////////////////////////////////////////////////////
