@@ -228,24 +228,25 @@
                                 
                                 //Setting up payment links
                                 
-                                if($pname === '' || $pname === ''){
+                                if($pname === 'Foundations of Islamic Banking & Finance' || $pname === 'Foundations of Islamic Banking & Finance(In Arabic)'){
                                     $payment_link = $foundation;
-                                }else if ($pname === ''){
+                                }else if ($pname === 'AAOIFI Accounting'){
                                     $payment_link = $accounting;
-                                }else if ($pname === ''){
+                                }else if ($pname === 'Islamic Trade Finance'){
                                     $payment_link = $trade_finance;
-                                }else if ($pname === ''){
+                                }else if ($pname === 'Islamic Treasury Application'){
                                     $payment_link = $treasury;
-                                }else if ($pname === ''){
+                                }else if ($pname === 'Sukuk & Islamic Securitization'){
                                     $payment_link = $capital_market;
                                 }else {
                                     $payment_link = '';
                                 }
                                 
                                 $coursedetails_e .= "
+                                    <br/>
                                     <table id='availablecourse3' style='bgcolor:#FFFFFF; border-collapse: collapse; border-spacing: 0; border-color:#cccccc;margin: 0px auto;' width='100%' border='1'>
                                         <tr bgcolor='#efeff7'>
-                                            <td><strong>Description</strong></td>
+                                            <td style='width:70%;'><strong>Description</strong></td>
                                             <td><strong>Unit price</strong></td>
                                             <td align='center' width='1%'><strong>Qty</strong></td>
                                             <td width='20%'><strong>Amount</strong></td>
@@ -262,7 +263,9 @@
                                             <td align='center'><strong>Total</strong></td>
                                             <td>$ ".$price * $q." USD</td>
                                         </tr>  
-                                    </table>";
+                                    </table>
+                                    <div style='width: 100%; border: 1px solid black; padding:10px 0px; text-align:center;'><a target='_blank' href='".$payment_link."'>Pay Now</a></div>
+                                    <br/>";
                             }
                         }
                         // --------- END --------- //
