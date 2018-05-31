@@ -264,7 +264,8 @@
                                             <td>$ ".$price * $q." USD</td>
                                         </tr>  
                                     </table>
-                                    <div style='width: 100%; padding:10px 0px; text-align:center;'><a style='width: 140px; height: 45px;  font-family: 'Roboto', sans-serif;  font-size: 11px; text-decoration: none;  text-transform: uppercase; letter-spacing: 2.5px;  font-weight: 500; color: #FFF;  background-color: #1ab7ea; border: none;  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);  transition: all 0.3s ease 0s;  cursor: pointer;  outline: none;' target='_blank' href='".$payment_link."'>Pay Now</a></div>
+                                    <div style='width: 100%; padding:10px 0px; text-align:center;'>
+                                    <a style='display:inline-block; width: 140px; padding:10px 0px; text-decoration: none; text-transform: uppercase; letter-spacing: 2.5px;  font-weight: 500; color: #FFF;  background-color: #1ab7ea; border: none;  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);  transition: all 0.3s ease 0s;  cursor: pointer;  outline: none;' target='_blank' href='".$payment_link."'>Pay Now</a></div>
                                     <br/>";
                             }
                         }
